@@ -159,12 +159,6 @@ a.custom-card:hover {
 
 /*Adicione esta parte de css para el div del loging -->*/
 
-.loginTitle {
-    font-style: Italic;
-    text-align: right;
-    color: rgb(214, 28, 108);
-}
-
 .login {
     background-color: rgba(243, 243, 243, 0.2);
     -webkit-backdrop-filter: blur(10px);
@@ -183,13 +177,18 @@ input {
     font-size: 11px;
 }
 
-button {
-    background: rgb(214, 28, 108);
-    border: none;
-    margin: 1em 0;
-    color: white;
-    padding: 1em;
-    width: 50%;
+
+/*para los botones sean igual al login*/
+
+.login_btn {
+    color: black;
+    background-color: rgb(214, 28, 108);
+    width: 100px;
     font-size: 1em;
     font-weight: bold;
+}
+
+.login_btn:hover {
+    color: black;
+    background-color: white;
 }

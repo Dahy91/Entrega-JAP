@@ -12,30 +12,57 @@ function dataLogin() {
     var valido = true;
     if (x == "" || x == null || x.includes("@") == false) {
         contenido += `
-        <p class="text-danger">Debe completar el campo</p>
-      `
+        <p class="error text-danger">Introduzca un email válido</p>
+        `
+        document.getElementById("usuario").style.borderColor = " red ";
+
         valido = false;
     } else {
         contenido = "";
     }
     if (y == "" || y == null) {
         contenido1 += `
-        <p class="text-danger">Debe completar el campo</p>
+        <p class="error text-danger">Contraseña inválida</p>
       `
+        document.getElementById("password").style.borderColor = " red ";
         valido = false;
     } else {
         contenido1 = "";
     }
     document.getElementById("erroruser").innerHTML = contenido;
     document.getElementById("errorpassword").innerHTML = contenido1;
+
     return valido;
 }
 
+var miStorage = window.sessionStorage;
+
+
 function validateLogin() {
+    var usuario = document.getElementById("usuario").value;
+    /*var password = document.getElementById("password").value;*/
+
+    //para  el usuario deberás almacenarlo en la pantalla de autenticación 18/08/2020 
+    var checkBox = document.getElementById("Recuerdame").checked;
+    if (checkBox) {
+        localStorage.setItem("keyUsuario", usuario);
+        miStorage.removeItem("keyUsuario");
+        alert("localStorage: " + localStorage.getItem("keyUsuario"));
+
+    } else {
+
+        miStorage.setItem("keyUsuario", usuario);
+        localStorage.removeItem("keyUsuario");
+
+        alert("sessionStorage: " + miStorage.getItem("keyUsuario"));
+    }
+
+
+    // por acá se mantiene el redireccionamiento
     if (dataLogin() == false) {
         return dataLogin();
     } else {
-        return location.href = "index2.html";
+        return window.location.href = "index2.html";
     }
 }
 
