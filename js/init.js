@@ -40,6 +40,24 @@ var getJSONData = function(url) {
         });
 }
 
+//para que aparezca el usuario logueado en pantalla superior 
+
+document.addEventListener("DOMContentLoaded", userLoggedIn());
+
+function userLoggedIn() {
+    if (sessionStorage.getItem("keyUsuario") == null && localStorage.getItem("keyUsuario") == null) {
+        NombreDeUsuario = "Registrate!";
+    } else if (sessionStorage.getItem("keyUsuario") == null) {
+        NombreDeUsuario = localStorage.getItem("keyUsuario");
+    } else {
+        NombreDeUsuario = sessionStorage.getItem("keyUsuario");
+    }
+
+    document.getElementById("logged").textContent = "Bienvenido " + NombreDeUsuario + "!";
+};
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

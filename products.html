@@ -13,6 +13,18 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+
+    <style>
+        input[type=search] {
+            width: 130px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+        
+        input[type=search]:focus {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,6 +35,7 @@
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
             <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
             <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+            <p class="py-2 d-none d-md-inline-block" id="logged" style=" color: white;"></p>
         </div>
     </nav>
     <div class="container p-5">
@@ -35,6 +48,51 @@
 
     </div>
 
+    <div class="container">
+        <div class="row col">
+
+            <!--agregado para incluir el filtrado de productos -->
+            <div class="col text-left">
+                <input type="search" id="searchProduct" placeholder="Busca en Eccomerce" class="btn-group btn-group-toggle mb-4 my-2" style="padding: 4px;" />
+            </div>
+
+            <div class="col text-right">
+                <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+
+                    <button class="btn btn-light active" id="productSortAsc" type="radio" name="options" autocomplete="off" checked>MIN </button>
+
+                    <button class="btn btn-light" id="productSortDesc" type="radio" name="options" autocomplete="off">MAX </button>
+
+                    <button class="btn btn-light" id="productSortByCount" type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Relevancia </button>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 col-sm-12 mb-1 container">
+                <div class="row container p-0 m-0">
+                    <div class="col">
+                        <p class="font-weight-normal text-right my-2">Cant.</p>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+                    </div>
+                    <div class="col-3 p-0">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                            <button class="btn btn-link btn-block" id="clearRangeFilter">Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--agregado para incluir el listado de productos -->
     <div class="row" id="listcontainerproducts"></div>
