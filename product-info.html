@@ -3,6 +3,55 @@
 <html lang="en">
 
 <head>
+    <style>
+        /* css para las estrellas de las puntuaciones */
+        
+        .rating {
+            direction: rtl;
+            display: inline-block;
+            padding: 20px
+        }
+        /* .rating {
+            float: left;
+        }*/
+        
+        .rating input[type=radio] {
+            display: none;
+        }
+        /* .rating:not(:checked)>input {
+            position: absolute;
+            clip: rect(0, 0, 0, 0);
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            opacity: 0;
+        }*/
+        
+        .rating label {
+            color: rgb(133, 142, 192);
+            text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5);
+            font-size: 50px;
+            padding: 0;
+            cursor: pointer;
+        }
+        
+        .rating label:hover,
+        .rating label:hover~label,
+        .rating input[type=radio]:checked~label {
+            color: gold;
+            text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+        
+        .rating>label:active {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+        
+        .rating:not(:checked)>label:before {
+            content: '★ ';
+        }
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -26,14 +75,79 @@
             <p class="py-2 d-none d-md-inline-block" id="logged" style=" color: white;"></p>
         </div>
     </nav>
-    <div class="container p-5">
-        <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-            <h4 class="alert-heading">¡A trabajar! :)</h4>
-            <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-            <hr>
-            <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+    <!--Incluir info productos-->
+    <main role="main">
+        <div class="container mt-5">
+            <div class="text-center p-4">
+                <h2>Descripción del Producto</h2>
+                <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+                <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto seleccionado previamente, siempre se visualizará el presente: <strong>Autos</strong>.</p>
+            </div>
+            <h3 id="productName"></h3>
+            <hr class="my-3">
+            <dl>
+                <dt>Descripción</dt>
+                <dd>
+                    <p id="productDescription"></p>
+                </dd>
+
+                <dt>Costo del producto</dt>
+                <dd>
+                    <p id="productCost"></p>
+                </dd>
+
+                <dt>Cantidad del producto</dt>
+                <dd>
+                    <p id="productsCount"></p>
+                </dd>
+
+                <!--dt>Criterio para incluir productos en esta categoría</dt>
+                <dd>
+                    <p id="productsCriteria"></p>
+                </dd-->
+
+                <dt>Imágenes ilustrativas</dt>
+                <dd>
+                    <div class="row text-center text-lg-left pt-2" id="productImageGallery">
+                    </div>
+                </dd>
+
+                <!-- Para incluir los comentarios-->
+
+                <dd>
+                    <fieldset class="rating">
+                        <legend>Comentarios y Valoraciones</legend>
+                        <input type="radio" id="star5" name="rating" class="rating" value="5" /><label for="star5" title="Excelente"></label>
+                        <input type="radio" id="star4" name="rating" class="rating" value="4" /><label for="star4" title="Muy bueno"></label>
+                        <input type="radio" id="star3" name="rating" class="rating" value="3" /><label for="star3" title="Bueno"></label>
+                        <input type="radio" id="star2" name="rating" class="rating" value="2" /><label for="star2" title="Aceptable"></label>
+                        <input type="radio" id="star1" name="rating" class="rating" value="1" /><label for="star1" title="Malo"></label>
+                    </fieldset>
+                    <div id="errorEstrellas"></div>
+
+
+                    <div class="col-md-12 mb-3">
+                        <label for="productComments"></label>
+                        <textarea class="form-control" id="productComments" rows="3" placeholder="Añada su comentario aquí"></textarea>
+                        <div id="errorComment"></div>
+                        <button type="button" class="btn btn-light btn-lg btn-block" id="buttonSendComment" onclick="sendComment()">Añadir
+                    </div>
+                    
+                    <dt> <a href="#" id="btn-show-comments"><p class="small alert-info py-3" style="padding-left: 16px;">Haga Click para ver los comentarios </p></a></dt>
+                    <div id="comments" style="display: none"></div>
+                  
+                </dd>
+
+            </dl>
+            <div class="col-md-12 mb-3">
+              <a type="button" class="btn btn-light btn-lg btn-block " href="products.html">Ver productos</a>
+            </div>
+            
         </div>
-    </div>
+
+    </main>
+
     <footer class="text-muted">
         <div class="container">
             <p class="float-right">
