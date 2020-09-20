@@ -1,0 +1,13 @@
+
+ acceso a la pagina :
+
+https://dahy91.github.io/Entrega-JAP/
+
+Código nuevo:
+1. Se añade en el init.js se adiciona la funcion para cerrar sesión.
+2. En el product-info.js se maneja los json de products y product info a través de una función para mostrar los productos 
+relacionados.
+3. Se añaden en todos los html la estructura correspondiente para mostrar el menú de usuario en el nav bar.
+4. En el html de product-info se añade la estructura con boostrap para mostrar las imágenes como carrusel. 
+
+

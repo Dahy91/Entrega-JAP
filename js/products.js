@@ -52,7 +52,7 @@ function showProductsList(array) {
 
             //corregidos los div para que coincidan con el estilos de category y tengan responsividad 17/08/2020
             htmlContentToAppend += `
-        <a href="category-info.html" class="products list-group-item list-group-item-action">
+        <a href="product-info.html" class="products list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
                 <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -102,7 +102,7 @@ function searchProducts() {
 
         if (name.indexOf(texto) !== -1) {
             document.getElementById("listcontainerproducts").innerHTML += `
-            <a href="category-info.html" class="products list-group-item list-group-item-action">
+            <a href="product-info.html" class="products list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
                 <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
@@ -124,7 +124,7 @@ function searchProducts() {
         } else {
             if (description.indexOf(texto) !== -1) {
                 document.getElementById("listcontainerproducts").innerHTML += `
-                <a href="category-info.html" class="products list-group-item list-group-item-action">
+                <a href="product-info.html" class="products list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">

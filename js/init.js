@@ -40,9 +40,17 @@ var getJSONData = function(url) {
         });
 }
 
+
+
 //para que aparezca el usuario logueado en pantalla superior 
 
-document.addEventListener("DOMContentLoaded", userLoggedIn());
+document.addEventListener("DOMContentLoaded", function(e) {
+    var searchUrl = window.location.href;
+    var posicion = searchUrl.lastIndexOf("index.html");
+    if (posicion == -1) {
+        userLoggedIn();
+    }
+});
 
 function userLoggedIn() {
     if (sessionStorage.getItem("keyUsuario") == null && localStorage.getItem("keyUsuario") == null) {
@@ -53,8 +61,24 @@ function userLoggedIn() {
         NombreDeUsuario = sessionStorage.getItem("keyUsuario");
     }
 
-    document.getElementById("logged").textContent = "Bienvenido " + NombreDeUsuario + "!";
+    document.getElementById("logged").textContent = NombreDeUsuario;
 };
+
+//para cerrar sesion en el menu 
+
+
+function cerrarSesion() {
+    if (sessionStorage[0] !== " ") {
+        sessionStorage.clear();
+        alert(sessionStorage[0]);
+    } else {
+        localStorage.clear();
+        alert(localStorage[0]);
+    }
+    window.location.href = "index.html";
+
+}
+
 
 
 
